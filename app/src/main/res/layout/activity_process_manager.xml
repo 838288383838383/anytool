@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" android:layout_width="match_parent" android:layout_height="match_parent" android:background="@color/background">
+    <com.google.android.material.appbar.AppBarLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:background="@color/surface" app:elevation="0dp">
+        <com.google.android.material.appbar.MaterialToolbar android:id="@+id/toolbar" android:layout_width="match_parent" android:layout_height="?attr/actionBarSize" app:titleTextColor="@color/text_primary" />
+    </com.google.android.material.appbar.AppBarLayout>
+    <LinearLayout android:layout_width="match_parent" android:layout_height="match_parent" android:orientation="vertical" app:layout_behavior="@string/appbar_scrolling_view_behavior">
+        <ProgressBar android:id="@+id/progressBar" android:layout_width="match_parent" android:layout_height="wrap_content" style="@android:style/Widget.ProgressBar.Horizontal" android:indeterminate="true" android:visibility="gone" />
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:padding="12dp">
+            <com.google.android.material.button.MaterialButton android:id="@+id/btnRefresh" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Refresh" app:cornerRadius="12dp" android:layout_marginEnd="4dp" />
+            <com.google.android.material.button.MaterialButton android:id="@+id/btnKillSelected" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Kill Process" style="@style/Widget.Material3.Button.OutlinedButton" app:cornerRadius="12dp" android:layout_marginStart="4dp" />
+        </LinearLayout>
+        <ScrollView android:layout_width="match_parent" android:layout_height="match_parent" android:paddingHorizontal="12dp" android:paddingBottom="12dp">
+            <TextView android:id="@+id/tvProcesses" android:layout_width="match_parent" android:layout_height="wrap_content" android:textSize="11sp" android:fontFamily="monospace" android:textColor="@color/text_primary" android:background="@color/card_background" android:padding="12dp" />
+        </ScrollView>
+    </LinearLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

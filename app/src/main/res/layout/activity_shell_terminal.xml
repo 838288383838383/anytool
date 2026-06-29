@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" android:layout_width="match_parent" android:layout_height="match_parent" android:background="@color/background">
+    <com.google.android.material.appbar.AppBarLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:background="@color/surface" app:elevation="0dp">
+        <com.google.android.material.appbar.MaterialToolbar android:id="@+id/toolbar" android:layout_width="match_parent" android:layout_height="?attr/actionBarSize" app:titleTextColor="@color/text_primary" />
+    </com.google.android.material.appbar.AppBarLayout>
+    <LinearLayout android:layout_width="match_parent" android:layout_height="match_parent" android:orientation="vertical" app:layout_behavior="@string/appbar_scrolling_view_behavior">
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:padding="12dp" android:gravity="center_vertical">
+            <Spinner android:id="@+id/spinnerMode" android:layout_width="0dp" android:layout_height="40dp" android:layout_weight="1" android:layout_marginEnd="8dp" />
+            <com.google.android.material.button.MaterialButton android:id="@+id/btnDistroPicker" android:layout_width="wrap_content" android:layout_height="40dp" android:text="Distro" android:visibility="gone" style="@style/Widget.Material3.Button.TonalButton" app:cornerRadius="12dp" android:layout_marginEnd="8dp" />
+            <com.google.android.material.button.MaterialButton android:id="@+id/btnClear" android:layout_width="wrap_content" android:layout_height="40dp" android:text="Clear" style="@style/Widget.Material3.Button.TonalButton" app:cornerRadius="12dp" />
+        </LinearLayout>
+        <LinearLayout android:id="@+id/scrollOutput" android:layout_width="match_parent" android:layout_height="0dp" android:layout_weight="1" android:orientation="vertical" android:paddingHorizontal="12dp">
+            <TextView android:id="@+id/tvOutput" android:layout_width="match_parent" android:layout_height="match_parent" android:textSize="13sp" android:fontFamily="monospace" android:textColor="@color/text_primary" android:background="@color/card_background" android:padding="16dp" />
+        </LinearLayout>
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:padding="12dp" android:gravity="center_vertical">
+            <EditText android:id="@+id/etCommand" android:layout_width="0dp" android:layout_height="48dp" android:layout_weight="1" android:hint="Enter command" android:singleLine="true" android:textSize="14sp" android:fontFamily="monospace" android:background="@drawable/badge_background" android:paddingHorizontal="12dp" android:layout_marginEnd="8dp" />
+            <com.google.android.material.button.MaterialButton android:id="@+id/btnRun" android:layout_width="wrap_content" android:layout_height="48dp" android:text="Run" app:cornerRadius="12dp" />
+        </LinearLayout>
+    </LinearLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

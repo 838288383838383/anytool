@@ -1,0 +1,3 @@
+-keep class com.anydebloat.debloater.** { *; }
+-keep class com.anydebloat.shizuku.** { *; }
+-keep class com.anydebloat.models.** { *; }

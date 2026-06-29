@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">AnyTool</string>
+    <string name="accessibility_service_description">AnyTool Volume Manager service. Enables volume button shortcuts to open apps, take screenshots, lock screen, and more.</string>
+</resources>

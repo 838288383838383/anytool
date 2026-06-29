@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Android 16 Material 3 Color Scheme -->
+    <color name="primary">#FF0061A4</color>
+    <color name="primary_dark">#FF00497D</color>
+    <color name="on_primary">#FFFFFFFF</color>
+    <color name="primary_container">#FFD1E4FF</color>
+    <color name="on_primary_container">#FF001D36</color>
+    <color name="secondary">#FF535F70</color>
+    <color name="on_secondary">#FFFFFFFF</color>
+    <color name="secondary_container">#FFD7E3F7</color>
+    <color name="on_secondary_container">#FF101C2B</color>
+    <color name="tertiary">#FF6B5778</color>
+    <color name="tertiary_container">#FFF2DAFF</color>
+    <color name="error">#FFBA1A1A</color>
+    <color name="error_container">#FFFFDAD6</color>
+    <color name="background">#FFFDFCFF</color>
+    <color name="on_background">#FF1A1C1E</color>
+    <color name="surface">#FFFDFCFF</color>
+    <color name="on_surface">#FF1A1C1E</color>
+    <color name="surface_variant">#FFDFE2EB</color>
+    <color name="on_surface_variant">#FF43474E</color>
+    <color name="outline">#FF73777F</color>
+    <color name="outline_variant">#FFC3C6CF</color>
+    <color name="card_background">#FFFFFFFF</color>
+    <color name="text_primary">#FF1A1C1E</color>
+    <color name="text_secondary">#FF43474E</color>
+    <color name="divider">#FFE0E3EB</color>
+    <color name="green">#FF386A20</color>
+    <color name="red">#FFBA1A1A</color>
+    <color name="orange">#FF7C5800</color>
+    <color name="blue">#FF0061A4</color>
+    <color name="purple">#FF6B5778</color>
+    <color name="teal">#FF006A6A</color>
+    <color name="cyan">#FF00629D</color>
+
+    <!-- Tool Category Colors -->
+    <color name="cat_debloat">#FFD1E4FF</color>
+    <color name="cat_system">#FFF2DAFF</color>
+    <color name="cat_device">#FFD7E3F7</color>
+    <color name="cat_network">#FFFFDAD6</color>
+    <color name="cat_debug">#FFFFE0B2</color>
+</resources>

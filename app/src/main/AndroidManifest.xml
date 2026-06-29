@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <uses-permission android:name="android.permission.QUERY_ALL_PACKAGES" tools:ignore="QueryAllPackagesPermission" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.TETHER_WIFI" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_MEDIA_AUDIO" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+
+    <application
+        android:name=".AnyToolApp"
+        android:allowBackup="false"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.AnyTool"
+        android:usesCleartextTraffic="false">
+
+        <activity android:name=".ui.MainActivity" android:exported="true" android:theme="@style/Theme.AnyTool">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name=".ui.PackageListActivity" android:theme="@style/Theme.AnyTool" />
+        <activity android:name=".ui.SettingsActivity" android:theme="@style/Theme.AnyTool" />
+        <activity android:name=".ui.BackupRestoreActivity" android:theme="@style/Theme.AnyTool" />
+        <activity android:name=".ui.SystemTweaksActivity" android:theme="@style/Theme.AnyTool" />
+        <activity android:name=".ui.StressTestActivity" android:theme="@style/Theme.AnyTool" />
+        <activity android:name=".ui.BatteryStatsActivity" android:theme="@style/Theme.AnyTool" />
+        <activity android:name=".ui.NetworkInfoActivity" android:theme="@style/Theme.AnyTool" />
+        <activity android:name=".ui.AppManagerActivity" android:theme="@style/Theme.AnyTool" />
+        <activity android:name=".ui.BuildPropActivity" android:theme="@style/Theme.AnyTool" />
+        <activity android:name=".ui.ShellTerminalActivity" android:theme="@style/Theme.AnyTool" />
+        <activity android:name=".ui.LogcatActivity" android:theme="@style/Theme.AnyTool" />
+        <activity android:name=".ui.PermissionManagerActivity" android:theme="@style/Theme.AnyTool" />
+        <activity android:name=".ui.ProcessManagerActivity" android:theme="@style/Theme.AnyTool" />
+        <activity android:name=".ui.VolumeManagerActivity" android:theme="@style/Theme.AnyTool" />
+        <activity android:name=".ui.SpotifyPlayerActivity" android:theme="@style/Theme.AnyTool" />
+        <activity android:name=".ui.WifiHotspotActivity" android:theme="@style/Theme.AnyTool" />
+        <activity android:name=".ui.AppLauncherActivity"
+            android:theme="@style/Theme.AnyTool"
+            android:exported="true"
+            android:launchMode="singleTask"
+            android:taskAffinity=""
+            android:excludeFromRecents="true" />
+
+        <service android:name=".service.VolumeManagerService"
+            android:exported="false"
+            android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE">
+            <intent-filter>
+                <action android:name="android.accessibilityservice.AccessibilityService" />
+            </intent-filter>
+            <meta-data android:name="android.accessibilityservice" android:resource="@xml/accessibility_service_config" />
+        </service>
+
+        <provider android:name="com.rosan.dhizuku.server.DhizukuProvider" android:authorities="${applicationId}.dhizuku" android:multiprocess="false" android:enabled="true" android:exported="true" android:permission="android.permission.INTERACT_ACROSS_USERS_FULL" />
+        <provider android:name="rikka.shizuku.ShizukuProvider" android:authorities="${applicationId}.shizuku" android:multiprocess="false" android:enabled="true" android:exported="true" android:permission="android.permission.INTERACT_ACROSS_USERS_FULL" />
+        <provider android:name="androidx.startup.InitializationProvider" android:authorities="${applicationId}.androidx-startup" android:exported="false" tools:node="merge">
+            <meta-data android:name="rikka.shizuku.ShizukuInitializer" android:value="androidx.startup" tools:node="merge" />
+        </provider>
+    </application>
+</manifest>
