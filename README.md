@@ -68,8 +68,8 @@ Requires [Termux](https://github.com/termux/termux-app) installed with `pkg inst
 
 ### Build
 ```bash
-git clone https://github.com/YOUR_USERNAME/anydebloat-android.git
-cd anydebloat-android
+git clone https://github.com/838288383838383/anytool.git
+cd anytool
 ./gradlew assembleDebug
 ```
 
