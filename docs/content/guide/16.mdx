@@ -1,0 +1,44 @@
+---
+title: "Spotify Offline Player"
+description: "Play music from local storage"
+page: 16
+---
+
+# Spotify Offline Player
+
+Play music files stored on your device's SD card or internal storage, designed for offline listening.
+
+## Setup
+
+### Music Location
+AnyTool looks for music in:
+- `/sdcard/Music/Spotify/`
+- `/storage/emulated/0/Music/Spotify/`
+
+### Supported Formats
+- MP3, AAC, FLAC, OGG, WAV, M4A
+
+### Authentication
+For full Spotify integration (track metadata, artwork), configure:
+- **Client ID** — From Spotify Developer Dashboard
+- **Client Secret** — From Spotify Developer Dashboard
+
+> **Note:** Local playback works without credentials. Spotify API is optional for metadata enhancement.
+
+## Player Controls
+
+- **Play/Pause** — Tap the center button
+- **Next/Previous** — Skip tracks
+- **Seek** — Drag the progress bar
+- **Volume** — Use device volume buttons or slider
+
+## Playlist View
+
+- Browse all found music files
+- See track title, artist (from metadata), duration
+- Shuffle mode toggle
+- Repeat (off / one / all)
+
+> **Tip:** Organize your music in subfolders under `Music/Spotify/` for better browsing.
+
+> **Previous:** [WiFi Hotspot ←](/docs/guide/15) | **Next:** [Volume Manager →](/docs/guide/17)

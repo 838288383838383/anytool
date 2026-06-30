@@ -1,0 +1,52 @@
+---
+title: "Advanced Debloating Strategies"
+description: "Deep dive into OEM-specific debloat approaches"
+---
+
+# Advanced Debloating Strategies
+
+## Dependency Mapping
+
+Before debloating, understand package dependencies:
+
+```
+com.samsung.android.bixby.agent
+├── com.samsung.android.bixby.service
+├── com.samsung.android.visionintelligence
+└── com.samsung.android.bixby.voiceinput
+```
+
+Disable leaf dependencies first, then the parent.
+
+## OEM-Specific Approaches
+
+### Samsung One UI
+- Bixby ecosystem is deeply integrated — disable carefully
+- Samsung Keyboard has optional components
+- Galaxy Store can be disabled if you only use Play Store
+
+### Xiaomi MIUI
+- MIUI Analytics and MSA (Mi System Ads) are primary targets
+- Mi Daemon runs in background — safe to disable
+- Some MIUI features depend on system apps
+
+### Generic Android
+- Google app suite has many optional components
+- Chrome can be disabled if you use another browser
+- Google Play Services should NOT be disabled
+
+## Recovery Procedures
+
+### Boot Loop Recovery
+1. Boot into Safe Mode (hold Power + Volume Down during boot)
+2. Open AnyTool in Safe Mode
+3. Re-enable the last disabled packages
+4. Reboot normally
+
+### ADB Recovery
+```bash
+# From a computer:
+adb shell pm enable <package.name>
+```
+
+> **Tip:** Always test after disabling each batch of packages, not all at once.

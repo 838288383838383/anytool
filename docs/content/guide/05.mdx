@@ -1,0 +1,53 @@
+---
+title: "Debloater — ZeroDay & Brute Mode"
+description: "Advanced debloat modes for deeper system access"
+page: 5
+---
+
+# Debloater — ZeroDay & Brute Mode
+
+## ZeroDay Mode
+
+ZeroDay Mode uses hidden Android APIs to remove packages beyond what Normal mode can do. It targets packages that `pm disable-user` cannot touch.
+
+### How It Works
+- Uses reflection to access hidden `PackageManager` methods
+- Can disable packages marked as persistent or system-critical
+- Still reversible via the backup system
+
+### When to Use
+- Packages that Normal mode fails to disable
+- Deeply embedded telemetry services
+- Persistent OEM apps that auto-restart
+
+> **Warning:** ZeroDay Mode may cause instability. Always create a backup first.
+
+## Brute Mode (Root Required)
+
+Brute Mode forcefully uninstalls system packages. This is the most aggressive option and **requires root**.
+
+### How It Works
+```bash
+# Mounted as read-write, then deleted:
+mount -o remount,rw /system
+rm /system/app/Bloatware/Bloatware.apk
+pm uninstall --user 0 <package.name>
+```
+
+### When to Use
+- Packages that survive Normal and ZeroDay modes
+- System apps you're certain you'll never need
+- Freeing maximum storage space
+
+> **Danger:** Brute Mode can break your device if you remove critical system components. Only use on packages you fully understand.
+
+## Comparison
+
+| Feature | Normal | ZeroDay | Brute |
+|---------|--------|---------|-------|
+| Root Required | No | No | Yes |
+| Reversible | Yes | Yes | Partially |
+| Aggressiveness | Low | Medium | High |
+| Risk Level | Safe | Moderate | Dangerous |
+
+> **Previous:** [Normal Mode ←](/docs/guide/04) | **Next:** [System Tweaks →](/docs/guide/06)

@@ -1,0 +1,77 @@
+---
+title: "Icon Customizer"
+description: "Create custom app icons (UNSTABLE)"
+page: 20
+---
+
+# Icon Customizer
+
+> **Status: UNSTABLE** — This feature is experimental and may crash.
+
+Design custom app icons with a layer-based editor.
+
+## Editor Controls
+
+### Background
+- **Shape** — Circle, Square, Rounded Square, Squircle
+- **Color** — Solid color or gradient (linear, radial)
+- **Opacity** — Adjustable transparency (0-100%)
+
+### Layers
+- Add multiple layers for complex designs
+- Each layer supports:
+  - **Shape** — Basic geometric shapes
+  - **Text** — Custom text with font, size, color
+  - **Image** — Import from gallery or camera
+
+### Overlays
+- Apply visual effects over the icon
+- **Gradient Overlay** — Color wash effects
+- **Pattern Overlay** — Texture and pattern effects
+- **Blur** — Gaussian blur for depth
+
+### Alpha Channel
+- Control per-pixel transparency
+- Create transparent regions in shapes
+- Export with alpha for adaptive icons
+
+## Live Preview
+- See changes in real-time as you edit
+- Preview at multiple sizes (48dp, 72dp, adaptive)
+
+## Community Designs
+
+### Import JSON
+Load community-created icon designs from JSON files:
+```
+Settings → Import Design → Select JSON file
+```
+
+### Export JSON
+Share your designs with the community:
+```
+Export → Save as JSON → Share via file/email
+```
+
+### JSON Format
+```json
+{
+  "name": "My Custom Icon",
+  "author": "YourName",
+  "background": { "shape": "circle", "color": "#FF6B6B" },
+  "layers": [
+    { "type": "text", "text": "A", "color": "#FFFFFF", "size": 120 }
+  ]
+}
+```
+
+## Applying Icons
+
+1. Design your icon
+2. Tap **Apply**
+3. Select the target app
+4. Confirm the change (requires Shizuku)
+
+> **Warning:** Icon Customizer is unstable. Save your designs frequently. Some devices may not support icon overriding.
+
+> **Previous:** [Shell Terminal ←](/docs/guide/19)

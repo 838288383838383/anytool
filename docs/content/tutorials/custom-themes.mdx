@@ -1,0 +1,61 @@
+---
+title: "Creating Custom Themes"
+description: "Design your own theme with custom colors and Material 3"
+---
+
+# Creating Custom Themes
+
+## Theme Architecture
+
+AnyTool themes use Material 3 color tokens:
+
+```kotlin
+enum class AppTheme(
+    val displayName: String,
+    val primary: Color,
+    val onPrimary: Color,
+    val primaryContainer: Color,
+    val surface: Color,
+    val onSurface: Color,
+    val background: Color,
+)
+```
+
+## Creating a Theme
+
+### Step 1: Choose Base Colors
+Pick 3-5 colors that work well together:
+- **Primary** — Main brand color
+- **Secondary** — Accent color
+- **Surface** — Card and background color
+- **Error** — Warning and error color
+
+### Step 2: Map to Material 3 Tokens
+Use the Material 3 color system:
+- `primary` → Main buttons, active elements
+- `onPrimary` → Text on primary color
+- `primaryContainer` → Less prominent elements
+- `surface` → Cards, sheets
+- `onSurface` → Text on surfaces
+
+### Step 3: Add to AppTheme.kt
+```kotlin
+MYCUSTOM(
+    displayName = "My Custom Theme",
+    primary = Color(0xFF6750A4),
+    onPrimary = Color(0xFFFFFFFF),
+    primaryContainer = Color(0xFFE8DEF8),
+    surface = Color(0xFFFFFBFE),
+    onSurface = Color(0xFF1C1B1F),
+    background = Color(0xFFFFFBFE),
+)
+```
+
+### Step 4: Add Selection in Theme Picker
+Update the theme selector in MainActivity to include your theme.
+
+## Tips
+
+- Test with both light and dark content
+- Ensure sufficient contrast (WCAG AA: 4.5:1 minimum)
+- Use the Material Theme Builder for inspiration

@@ -1,0 +1,38 @@
+---
+title: "Permission Manager"
+description: "Manage app permissions"
+page: 8
+---
+
+# Permission Manager
+
+View, grant, and revoke app permissions with full control.
+
+## Features
+
+### Permission Overview
+- See all permissions grouped by category (Camera, Location, Storage, etc.)
+- View which apps have each permission
+- Identify over-privileged apps
+
+### Per-App View
+- Tap any app to see all its granted permissions
+- Quick toggle to grant/revoke individual permissions
+- See permission protection level (normal, dangerous, signature)
+
+### Search & Filter
+- Search apps or permissions by name
+- Filter by permission type (granted, denied, requested)
+- Sort by app name, permission count, or last modified
+
+## Permission Categories
+
+| Category | Examples | Risk |
+|----------|----------|------|
+| **Dangerous** | Camera, Location, Storage, Microphone | High |
+| **Normal** | Internet, Bluetooth, NFC | Low |
+| **Signature** | System-level access | Critical |
+
+> **Note:** Some permissions cannot be revoked without root. AnyTool will warn you if a permission is system-critical.
+
+> **Previous:** [Build Prop Editor ←](/docs/guide/07) | **Next:** [App Manager →](/docs/guide/09)

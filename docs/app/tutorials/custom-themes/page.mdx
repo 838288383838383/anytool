@@ -1,0 +1,71 @@
+# Creating Custom Themes
+
+## Theme Architecture
+
+AnyTool themes are defined in `AppTheme.kt`:
+
+```kotlin
+enum class AppTheme(val displayName: String, val colors: ThemeColors) {
+    FRUTIGER_AERO("Frutiger Aero", ThemeColors(
+        primary = "#FF00A8E8",
+        background = "#FFF0F8FF",
+        surface = "#FFE8F4FD"
+    )),
+    // ... more themes
+}
+```
+
+## Adding a Custom Theme
+
+### Step 1: Define Colors
+
+Create a new entry in `AppTheme.kt`:
+
+```kotlin
+MY_THEME("My Theme", ThemeColors(
+    primary = "#FF6200EE",
+    onPrimary = "#FFFFFFFF",
+    background = "#FF121212",
+    surface = "#FF1E1E1E",
+    textPrimary = "#FFFFFFFF",
+    textSecondary = "#FFB0B0B0"
+))
+```
+
+### Step 2: Add to Theme Picker
+
+In `SettingsActivity.kt`, add to the themes array:
+
+```kotlin
+val themes = AppTheme.values()
+```
+
+### Step 3: Apply Colors
+
+The theme colors are applied via SharedPreferences:
+
+```kotlin
+getSharedPreferences("app_theme", MODE_PRIVATE)
+    .edit()
+    .putString("theme", AppTheme.MY_THEME.name)
+    .apply()
+```
+
+## Color Properties
+
+| Property | Usage |
+|----------|-------|
+| primary | Main brand color, buttons, links |
+| onPrimary | Text on primary color |
+| background | App background |
+| surface | Card and surface backgrounds |
+| textPrimary | Main text color |
+| textSecondary | Secondary/muted text |
+| outline | Border and divider colors |
+
+## Design Tips
+
+- Use Material Color Tool: https://material.io/tools/color
+- Ensure sufficient contrast (4.5:1 minimum)
+- Test in both light and dark modes
+- Consider color-blind accessibility

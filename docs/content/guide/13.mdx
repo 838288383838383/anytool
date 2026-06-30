@@ -1,0 +1,58 @@
+---
+title: "Logcat Viewer"
+description: "Real-time log streaming and analysis"
+page: 13
+---
+
+# Logcat Viewer
+
+Stream, filter, and analyze Android system logs in real-time.
+
+## Features
+
+### Real-Time Streaming
+- Live logcat output with auto-scroll
+- Pause/resume streaming
+- Configurable refresh rate (100ms - 2s)
+
+### Filtering
+- **By Tag** — Show logs from specific components
+- **By Level** — Verbose, Debug, Info, Warn, Error, Fatal
+- **By PID** — Filter logs from a specific process
+- **By Text** — Search log messages for keywords
+
+### Log Levels
+
+| Level | Color | Description |
+|-------|-------|-------------|
+| **Verbose** | Gray | Detailed debug information |
+| **Debug** | Blue | Debug messages |
+| **Info** | Green | General information |
+| **Warn** | Yellow | Warnings |
+| **Error** | Red | Errors |
+| **Fatal** | Dark Red | Critical failures |
+
+## Using the Viewer
+
+1. Open AnyTool → tap **Logcat Viewer**
+2. Logs start streaming automatically
+3. Use the filter bar to narrow output
+4. Tap any log entry for full details
+5. Use **Export** to save logs to a file
+
+## Common Debug Patterns
+
+```
+# Find crashes:
+tag:AndroidRuntime level:ERROR
+
+# Find ANR issues:
+tag:ActivityManager level:ERROR
+
+# Filter by package:
+tag:YourPackageName
+```
+
+> **Tip:** Long-press a log entry to copy it or share it for debugging help.
+
+> **Previous:** [Network Info ←](/docs/guide/12) | **Next:** [Stress Test →](/docs/guide/14)

@@ -1,0 +1,41 @@
+---
+title: "Introduction & Overview"
+description: "What is AnyTool and what can it do?"
+page: 1
+---
+
+# Introduction & Overview
+
+**AnyTool** is an open-source Android multi-tool that leverages **Shizuku** (ADB without root) and **Dhizuku** (DeviceOwner) to give you deep control over your device.
+
+## What Can AnyTool Do?
+
+| Category | Features |
+|----------|----------|
+| **Debloat** | Remove bloatware (Samsung, Xiaomi, Generic) with Normal, ZeroDay, and Brute modes |
+| **System** | Tweaks, Build Prop Editor, Permission Manager |
+| **Device** | Battery Stats, Network Info, App Manager, Process Manager |
+| **Debug** | Logcat Viewer, Shell Terminal (3 modes), Stress Test |
+| **Extras** | WiFi Hotspot, Spotify Player, Volume Manager, App Launcher, Icon Customizer |
+
+## Architecture
+
+AnyTool uses a layered architecture:
+
+1. **Shizuku Layer** — Executes ADB-level commands without a computer
+2. **Dhizuku Layer** — DeviceOwner-level operations (optional, for advanced features)
+3. **proot Layer** — Linux sandbox via Termux (optional)
+4. **UI Layer** — Material 3 Android 16-style interface
+
+## Requirements
+
+- **Android 8.0+** (API 26)
+- **Shizuku** installed and running (required for most features)
+- **Root** (optional, only for Brute Mode debloat)
+- **Termux** (optional, for Linux Sandbox terminal)
+
+## Open Source
+
+AnyTool is licensed under **Apache 2.0**. Source code is available on [GitHub](https://github.com/838288383838383/anytool).
+
+> **Next:** [Installation & Setup →](/docs/guide/02)

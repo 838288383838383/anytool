@@ -1,0 +1,40 @@
+---
+title: "Process Manager"
+description: "View and manage running processes"
+page: 10
+---
+
+# Process Manager
+
+Monitor and control running processes on your device.
+
+## Features
+
+### Process Listing
+- View all running processes with PID, name, and user
+- See memory usage (RSS, PSS) per process
+- View CPU usage percentage
+- Identify parent-child process relationships
+
+### Sorting & Filtering
+- Sort by PID, name, memory, or CPU usage
+- Filter by process type (system, user, kernel)
+- Search by process name or package
+
+### Process Control
+- **Kill Process** — Terminate individual processes
+- **Kill Background** — Stop all background processes from an app
+- **Freeze** — Pause process execution (root required)
+
+## Understanding Processes
+
+| Type | Description | Safe to Kill? |
+|------|-------------|---------------|
+| **User** | Apps you opened | Yes |
+| **System** | Core Android services | No |
+| **Kernel** | Low-level OS processes | No |
+| **Zombie** | Terminated but not reaped | Yes |
+
+> **Warning:** Killing system processes can cause instability. Only kill processes you recognize.
+
+> **Previous:** [App Manager ←](/docs/guide/09) | **Next:** [Battery Stats →](/docs/guide/11)

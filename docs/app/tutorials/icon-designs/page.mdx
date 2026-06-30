@@ -1,0 +1,79 @@
+# Icon Design Workshop
+
+## Layer Composition
+
+The Icon Customizer uses a layered approach:
+
+```
+[Overlay]  ← top
+[Layer 3]
+[Layer 2]
+[Layer 1]
+[Background] ← bottom
+```
+
+## Design Principles
+
+### 1. Start with Background
+Choose shape and color first. The background sets the mood.
+
+### 2. Add Focal Layer
+One main element (text or shape) at 40-60% size, centered.
+
+### 3. Add Accent Layers
+Smaller shapes for visual interest. Use contrasting colors.
+
+### 4. Apply Overlay
+Vignette adds depth. Border adds definition.
+
+## JSON Design Template
+
+```json
+{
+  "name": "My Custom Icon",
+  "author": "YourName",
+  "version": 1,
+  "background": {
+    "type": "gradient",
+    "color": "#FF1A1A2E",
+    "colorEnd": "#FF16213E",
+    "shape": "squircle",
+    "cornerRadius": 28
+  },
+  "layers": [
+    {
+      "type": "shape",
+      "shape": "hexagon",
+      "color": "#8000D4FF",
+      "size": 60,
+      "x": 50,
+      "y": 45
+    },
+    {
+      "type": "text",
+      "text": "AT",
+      "fontSize": 36,
+      "textColor": "#FFFFFFFF",
+      "x": 50,
+      "y": 45,
+      "size": 80
+    }
+  ],
+  "overlay": {
+    "enabled": true,
+    "type": "glow",
+    "color": "#4000D4FF",
+    "intensity": 0.4
+  }
+}
+```
+
+## Sharing Designs
+
+1. Export your design as JSON
+2. Share via GitHub Gist, Discord, or Reddit
+3. Others can import by pasting the JSON
+
+## Community Design Gallery
+
+Submit your designs to the AnyTool GitHub repo for inclusion in the community gallery.

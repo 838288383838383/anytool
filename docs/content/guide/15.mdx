@@ -1,0 +1,45 @@
+---
+title: "WiFi Hotspot"
+description: "One-switch WiFi hotspot toggle"
+page: 15
+---
+
+# WiFi Hotspot
+
+Enable or disable your device's WiFi hotspot with a single tap.
+
+## How It Works
+
+AnyTool uses Android's built-in `svc wifi` command to toggle the hotspot:
+
+```bash
+svc wifi enablehotspot   # Turn on
+svc wifi disablehotspot  # Turn off
+```
+
+No root required — this works through Shizuku's ADB shell access.
+
+## Usage
+
+1. Open AnyTool → tap **WiFi Hotspot**
+2. Tap the toggle switch
+3. The hotspot activates instantly
+
+## Status Information
+
+The screen shows:
+- **Current State** — On/Off with color indicator
+- **Network Name** — Your device's hotspot SSID
+- **Security Type** — WPA2, WPA3, etc.
+- **Connected Devices** — Number of connected clients
+
+## Tips
+
+- The hotspot uses your mobile data connection
+- Battery drain is higher when hotspot is active
+- Some carriers restrict hotspot usage — check your plan
+- For persistent hotspot, use Android's built-in hotspot settings
+
+> **Note:** AnyTool toggles the hotspot state but doesn't configure the SSID/password. Use Android Settings for hotspot configuration.
+
+> **Previous:** [Stress Test ←](/docs/guide/14) | **Next:** [Spotify Offline Player →](/docs/guide/16)

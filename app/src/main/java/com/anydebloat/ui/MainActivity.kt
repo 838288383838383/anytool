@@ -97,6 +97,9 @@ class MainActivity : AppCompatActivity() {
         binding.btnAppLauncher.setOnClickListener {
             startActivity(Intent(this, AppLauncherActivity::class.java))
         }
+        binding.btnIconCustomizer.setOnClickListener {
+            startActivity(Intent(this, IconCustomizerActivity::class.java))
+        }
 
         // Utility
         binding.btnSettings.setOnClickListener {

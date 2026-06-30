@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" android:layout_width="match_parent" android:layout_height="match_parent" android:background="@color/background">
+    <com.google.android.material.appbar.AppBarLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:background="@color/surface" app:elevation="0dp">
+        <com.google.android.material.appbar.MaterialToolbar android:id="@+id/toolbar" android:layout_width="match_parent" android:layout_height="?attr/actionBarSize" app:titleTextColor="@color/text_primary" app:title="Icon Customizer" app:subtitleTextColor="@color/text_secondary" />
+    </com.google.android.material.appbar.AppBarLayout>
+    <androidx.core.widget.NestedScrollView android:id="@+id/scrollContent" android:layout_width="match_parent" android:layout_height="match_parent" app:layout_behavior="@string/appbar_scrolling_view_behavior">
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:paddingBottom="32dp">
+
+            <!-- Preview -->
+            <FrameLayout android:id="@+id/previewContainer" android:layout_width="match_parent" android:layout_height="wrap_content" android:padding="24dp" android:gravity="center">
+                <ImageView android:id="@+id/ivPreview" android:layout_width="180dp" android:layout_height="180dp" android:layout_gravity="center" android:scaleType="fitCenter" />
+            </FrameLayout>
+
+            <!-- Background Section -->
+            <com.google.android.material.card.MaterialCardView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginHorizontal="16dp" app:cardCornerRadius="20dp" app:cardElevation="0dp" app:strokeWidth="1dp" app:strokeColor="@color/outline_variant">
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:padding="20dp">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="BACKGROUND" android:textSize="12sp" android:textStyle="bold" android:textColor="@color/primary" android:letterSpacing="0.1" />
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:layout_marginTop="12dp" android:gravity="center_vertical">
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Type" android:textColor="@color/text_secondary" android:layout_marginEnd="12dp" />
+                        <Spinner android:id="@+id/spinnerBgType" android:layout_width="0dp" android:layout_height="40dp" android:layout_weight="1" />
+                    </LinearLayout>
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:layout_marginTop="8dp" android:gravity="center_vertical">
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Shape" android:textColor="@color/text_secondary" android:layout_marginEnd="12dp" />
+                        <Spinner android:id="@+id/spinnerBgShape" android:layout_width="0dp" android:layout_height="40dp" android:layout_weight="1" />
+                    </LinearLayout>
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:layout_marginTop="8dp" android:gravity="center_vertical">
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Color" android:textColor="@color/text_secondary" android:layout_marginEnd="12dp" />
+                        <View android:id="@+id/btnBgColor" android:layout_width="40dp" android:layout_height="40dp" android:background="@color/primary" app:cardCornerRadius="8dp" />
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="  End" android:textColor="@color/text_secondary" android:layout_marginStart="16dp" android:layout_marginEnd="12dp" />
+                        <View android:id="@+id/btnBgColorEnd" android:layout_width="40dp" android:layout_height="40dp" android:background="@color/primary_dark" app:cardCornerRadius="8dp" />
+                    </LinearLayout>
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:layout_marginTop="8dp" android:gravity="center_vertical">
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Alpha" android:textColor="@color/text_secondary" android:layout_marginEnd="12dp" />
+                        <SeekBar android:id="@+id/sliderAlpha" android:layout_width="0dp" android:layout_height="40dp" android:layout_weight="1" />
+                        <TextView android:id="@+id/tvAlphaValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="100%" android:textColor="@color/orange" android:textSize="12sp" android:layout_marginStart="8dp" />
+                    </LinearLayout>
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:layout_marginTop="4dp" android:gravity="center_vertical">
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Radius" android:textColor="@color/text_secondary" android:layout_marginEnd="12dp" />
+                        <SeekBar android:id="@+id/sliderCornerRadius" android:layout_width="0dp" android:layout_height="40dp" android:layout_weight="1" />
+                    </LinearLayout>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Gradient end color -->
+            <LinearLayout android:id="@+id/layoutGradientEnd" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:paddingHorizontal="36dp" android:layout_marginTop="8dp" android:visibility="gone" />
+
+            <!-- Layers Section -->
+            <com.google.android.material.card.MaterialCardView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginHorizontal="16dp" android:layout_marginTop="12dp" app:cardCornerRadius="20dp" app:cardElevation="0dp" app:strokeWidth="1dp" app:strokeColor="@color/outline_variant">
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:padding="20dp">
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:gravity="center_vertical">
+                        <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="LAYERS" android:textSize="12sp" android:textStyle="bold" android:textColor="@color/tertiary" android:letterSpacing="0.1" />
+                        <com.google.android.material.button.MaterialButton android:id="@+id/btnAddLayer" android:layout_width="wrap_content" android:layout_height="36dp" android:text="+ Add" android:textSize="12sp" style="@style/Widget.Material3.Button.TonalButton" app:cornerRadius="12dp" />
+                    </LinearLayout>
+                    <LinearLayout android:id="@+id/layerContainer" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:layout_marginTop="8dp" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Overlay Section -->
+            <com.google.android.material.card.MaterialCardView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginHorizontal="16dp" android:layout_marginTop="12dp" app:cardCornerRadius="20dp" app:cardElevation="0dp" app:strokeWidth="1dp" app:strokeColor="@color/outline_variant">
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:padding="20dp">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="OVERLAY" android:textSize="12sp" android:textStyle="bold" android:textColor="@color/orange" android:letterSpacing="0.1" />
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:layout_marginTop="12dp" android:gravity="center_vertical">
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Type" android:textColor="@color/text_secondary" android:layout_marginEnd="12dp" />
+                        <Spinner android:id="@+id/spinnerOverlayType" android:layout_width="0dp" android:layout_height="40dp" android:layout_weight="1" />
+                    </LinearLayout>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Actions -->
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:paddingHorizontal="16dp" android:layout_marginTop="20dp">
+                <com.google.android.material.button.MaterialButton android:id="@+id/btnImport" android:layout_width="0dp" android:layout_height="56dp" android:layout_weight="1" android:text="Import" style="@style/Widget.Material3.Button.TonalButton" app:cornerRadius="16dp" android:layout_marginEnd="4dp" />
+                <com.google.android.material.button.MaterialButton android:id="@+id/btnExport" android:layout_width="0dp" android:layout_height="56dp" android:layout_weight="1" android:text="Export" style="@style/Widget.Material3.Button.TonalButton" app:cornerRadius="16dp" android:layout_marginHorizontal="4dp" />
+                <com.google.android.material.button.MaterialButton android:id="@+id/btnCommunity" android:layout_width="0dp" android:layout_height="56dp" android:layout_weight="1" android:text="Community" style="@style/Widget.Material3.Button.TonalButton" app:cornerRadius="16dp" android:layout_marginHorizontal="4dp" />
+                <com.google.android.material.button.MaterialButton android:id="@+id/btnApply" android:layout_width="0dp" android:layout_height="56dp" android:layout_weight="1" android:text="Apply" app:cornerRadius="16dp" android:layout_marginStart="4dp" />
+            </LinearLayout>
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

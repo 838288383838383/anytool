@@ -1,0 +1,61 @@
+---
+title: "Debloater — Normal Mode"
+description: "Remove bloatware safely with Normal mode"
+page: 4
+---
+
+# Debloater — Normal Mode
+
+Normal Mode is the **safest** way to debloat your device. It uses `pm disable-user` to disable packages without uninstalling them — easily reversible.
+
+## How It Works
+
+```bash
+pm disable-user --user 0 <package.name>
+```
+
+This disables the app for your user only. The package remains on the system partition and can be re-enabled at any time.
+
+## Package Lists
+
+AnyTool includes curated lists for:
+
+| OEM | Package Count | Examples |
+|-----|--------------|----------|
+| **Samsung One UI** | 100+ | `com.samsung.android.app.tips`, `com.samsung.android.bixby.agent` |
+| **Xiaomi MIUI** | 80+ | `com.miui.msa`, `com.miui.analytics`, `com.xiaomi.joyose` |
+| **Generic Android** | 60+ | `com.google.android.googlequicksearchbox`, `com.android.chrome` |
+
+## Using Normal Mode
+
+1. Open AnyTool → tap **Debloater**
+2. Select your OEM (Samsung, Xiaomi, or Generic)
+3. Browse the package list — each shows package name and description
+4. Check packages to disable
+5. Tap **Disable Selected** — AnyTool backs up first
+6. Confirm in the dialog
+
+## Safety Features
+
+- **Backup before disable** — AnyTool saves package state
+- **Restore option** — Re-enable any disabled package from Backup/Restore
+- **No system damage** — Normal mode only disables for current user
+- **Confirmation dialog** — Prevents accidental disabling
+
+## What to Disable (Safe)
+
+- Pre-installed OEM apps you don't use
+- Analytics and telemetry services
+- Bloatware games and trials
+- OEM assistant apps (Bixby, Mi AI, etc.)
+
+## What NOT to Disable
+
+- `com.android.systemui` — Your entire UI
+- `com.android.settings` — Settings app
+- `com.android.vending` — Google Play Store
+- Any package you're unsure about
+
+> **Tip:** When in doubt, disable first and test. You can always re-enable.
+
+> **Previous:** [Shizuku Configuration ←](/docs/guide/03) | **Next:** [ZeroDay & Brute Mode →](/docs/guide/05)

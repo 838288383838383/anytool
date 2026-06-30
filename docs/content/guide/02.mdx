@@ -1,0 +1,54 @@
+---
+title: "Installation & Setup"
+description: "Install AnyTool and get started"
+page: 2
+---
+
+# Installation & Setup
+
+## Step 1: Install Shizuku
+
+AnyTool requires [Shizuku](https://github.com/RikkaApps/Shizuku) to execute ADB commands.
+
+**Option A: Google Play**
+```
+Search "Shizuku" → Install
+```
+
+**Option B: F-Droid**
+```
+F-Droid → Search "Shizuku" → Install
+```
+
+**Option C: GitHub Releases**
+```
+https://github.com/RikkaApps/Shizuku/releases → Download APK → Install
+```
+
+## Step 2: Start Shizuku
+
+### Without Root (Wireless Debugging)
+1. Enable **Developer Options** (tap Build Number 7 times)
+2. Enable **Wireless Debugging** in Developer Options
+3. Open Shizuku → tap **Start via Wireless Debugging**
+4. Pair with the pairing code if prompted
+
+### With Root (Magisk/KernelSU)
+1. Open Shizuku → tap **Start** → grant root access
+
+## Step 3: Install AnyTool
+
+1. Download `app-debug.apk` from [GitHub Releases](https://github.com/838288383838383/anytool/releases)
+2. Enable **Install from Unknown Sources** for your file manager
+3. Install the APK
+4. Open AnyTool → grant Shizuku permission when prompted
+
+## Step 4: Verify
+
+The main screen shows service status:
+- **Shizuku: Connected** (green) = ready to use
+- **Dhizuku: Available** (green) = DeviceOwner features enabled
+
+> **Tip:** If Shizuku shows "Not Connected", restart it from the Shizuku app.
+
+> **Previous:** [Introduction ←](/docs/guide/01) | **Next:** [Shizuku Configuration →](/docs/guide/03)

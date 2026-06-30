@@ -1,0 +1,60 @@
+# Advanced Debloating Strategies
+
+## Mapping Dependencies
+
+Before disabling packages, understand what depends on them:
+
+```bash
+# Find what a package depends on
+dumpsys package com.example.app | grep -A5 "required"
+
+# Find what depends on a package
+pm list packages | while read pkg; do
+  dumpsys package ${pkg#package:} | grep -q "com.example.app" && echo "$pkg depends on it"
+done
+```
+
+## OEM-Specific Strategies
+
+### Samsung One UI
+Samsung's ecosystem is deeply integrated. Safe to remove:
+- Bixby (all packages)
+- Samsung Free/Global Goals
+- Samsung Shop
+- AR Zone
+- Samsung Kids
+
+Do NOT remove:
+- `com.samsung.android.app.tips` (used by system UI)
+- `com.samsung.android.server` (core services)
+
+### Xiaomi MIUI
+MIUI has heavy telemetry. Safe to remove:
+- Mi Analytics (`com.miui.analytics`)
+- Mi Ad Services (`com.miui.msa`)
+- Joyose (`com.xiaomi.joyose`)
+- GetApps (`com.xiaomi.mipicks`)
+
+### Generic Android
+Google's pre-installs are generally safe to disable:
+- Google Pay (if not used)
+- Google Docs/Sheets/Slides (if not used)
+- Google One (if not subscribed)
+- Android Auto (if no car)
+
+## Recovery Procedures
+
+### Via ADB
+```bash
+# Re-enable a package
+adb shell pm install-existing <package>
+
+# List disabled packages
+adb shell pm list packages -d
+```
+
+### Via Recovery Mode
+1. Boot into recovery (Volume Up + Power)
+2. Mount /system
+3. Restore from backup
+4. Reboot

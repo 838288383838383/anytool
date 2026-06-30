@@ -1,0 +1,107 @@
+# Linux Sandbox Setup Guide
+
+## Complete Setup
+
+### Step 1: Install Termux
+
+**DO NOT** use Google Play version. Use F-Droid or GitHub:
+
+```
+F-Droid → Search "Termux" → Install
+```
+
+Or download APK from:
+```
+https://github.com/termux/termux-app/releases
+```
+
+### Step 2: Update Termux
+
+```bash
+pkg update && pkg upgrade -y
+```
+
+### Step 3: Install proot-distro
+
+```bash
+pkg install proot-distro -y
+```
+
+### Step 4: Install Distributions
+
+```bash
+# Debian (recommended for beginners)
+proot-distro install debian
+
+# Ubuntu (familiar to most users)
+proot-distro install ubuntu
+
+# Arch (bleeding edge)
+proot-distro install archlinux
+
+# Gentoo (for masochists)
+proot-distro install gentoo
+
+# openSUSE (YaST fans)
+proot-distro install opensuse
+
+# NixOS (declarative config)
+proot-distro install nixos
+```
+
+### Step 5: Login
+
+```bash
+proot-distro login debian
+```
+
+## Per-Distro Setup
+
+### Debian
+```bash
+apt update && apt upgrade -y
+apt install git curl wget vim -y
+```
+
+### Ubuntu
+```bash
+apt update && apt upgrade -y
+apt install build-essential -y
+```
+
+### Arch Linux
+```bash
+pacman -Syu --noconfirm
+pacman -S base-devel git -y
+```
+
+### Gentoo
+```bash
+emerge --sync
+emerge -avuDN @world
+```
+
+### openSUSE
+```bash
+zypper refresh
+zypper update -y
+```
+
+### NixOS
+```bash
+nix-channel --update
+nix-env -iA nixpkgs.git
+```
+
+## Using with AnyTool
+
+1. AnyTool → Shell Terminal
+2. Select "Linux Sandbox (proot)" from mode spinner
+3. Tap "Distro" button to select
+4. Type commands — they execute in the distro
+
+## Performance Tips
+
+- proot adds ~10-20% overhead
+- For heavy workloads, use a VPS instead
+- Keep distro rootfs small: clean package cache regularly

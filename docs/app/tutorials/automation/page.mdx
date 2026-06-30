@@ -1,0 +1,77 @@
+# Shell Automation
+
+## Scripting with AnyTool
+
+AnyTool's terminal supports full shell scripting via ADB or proot.
+
+## Useful Scripts
+
+### Batch Package Disable
+
+```bash
+#!/system/bin/sh
+# disable-bloat.sh
+packages=(
+  "com.samsung.android.app.tips"
+  "com.samsung.android.bixby.agent"
+  "com.samsung.android.bixby.service"
+)
+
+for pkg in "${packages[@]}"; do
+  echo "Disabling: $pkg"
+  pm disable-user --user 0 "$pkg"
+done
+echo "Done! Disabled ${#packages[@]} packages."
+```
+
+### Battery Monitor
+
+```bash
+#!/system/bin/sh
+while true; do
+  level=$(dumpsys battery | grep level | awk '{print $2}')
+  temp=$(dumpsys battery | grep temperature | awk '{print $2}')
+  echo "Battery: ${level}% | Temp: ${temp}°C"
+  sleep 60
+end
+```
+
+### Process Watchdog
+
+```bash
+#!/system/bin/sh
+# Kill app if it uses too much memory
+threshold=500000  # 500MB in KB
+while true; do
+  mem=$(dumpsys meminfo com.example.app | grep TOTAL | awk '{print $2}')
+  if [ "$mem" -gt "$threshold" ]; then
+    echo "Killing app (mem: ${mem}KB)"
+    am force-stop com.example.app
+  fi
+  sleep 30
+done
+```
+
+## Tasker Integration
+
+AnyTool can be triggered from Tasker via:
+
+1. **Intent broadcast:**
+```
+am start -n com.anydebloat/.ui.ShellTerminalActivity
+```
+
+2. **Shell command:**
+```
+sh -c "input text 'your command'"
+```
+
+## Cron-like Scheduling
+
+Use Termux's built-in cron:
+
+```bash
+pkg install cronie
+crontab -e
+# Add: 0 */6 * * * /path/to/script.sh
+```

@@ -58,6 +58,8 @@ class PackageAdapter(
         holder.tvDisplayName.text = pkg.displayName
         holder.tvName.text = pkg.packageName
         holder.tvCategory.text = pkg.category
+        
+        holder.checkBox.setOnCheckedChangeListener(null)
         holder.checkBox.isChecked = pkg.isSelected
 
         // Status

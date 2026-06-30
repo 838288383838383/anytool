@@ -10,6 +10,7 @@ import android.util.Log
 import android.view.KeyEvent
 import android.view.accessibility.AccessibilityEvent
 import com.anydebloat.ui.AppLauncherActivity
+import java.util.concurrent.atomic.AtomicInteger
 
 class VolumeManagerService : AccessibilityService() {
 
@@ -27,7 +28,7 @@ class VolumeManagerService : AccessibilityService() {
             private set
     }
 
-    private var volumeUpCount = 0
+    private val volumeUpCount = AtomicInteger(0)
     private var lastVolumeUpTime = 0L
     private lateinit var prefs: SharedPreferences
 
@@ -35,7 +36,7 @@ class VolumeManagerService : AccessibilityService() {
         super.onServiceConnected()
         isRunning = true
         prefs = getSharedPreferences(PREFS, Context.MODE_PRIVATE)
-        volumeUpCount = prefs.getInt(KEY_VOLUME_UP_COUNT, 0)
+        volumeUpCount.set(prefs.getInt(KEY_VOLUME_UP_COUNT, 0))
         lastVolumeUpTime = prefs.getLong(KEY_LAST_PRESS, 0)
 
         serviceInfo = serviceInfo.apply {
@@ -77,18 +78,18 @@ class VolumeManagerService : AccessibilityService() {
     private fun handleVolumeUp(action: String) {
         val now = SystemClock.elapsedRealtime()
         if (now - lastVolumeUpTime < DOUBLE_PRESS_WINDOW) {
-            volumeUpCount++
+            volumeUpCount.incrementAndGet()
         } else {
-            volumeUpCount = 1
+            volumeUpCount.set(1)
         }
         lastVolumeUpTime = now
         prefs.edit()
-            .putInt(KEY_VOLUME_UP_COUNT, volumeUpCount)
+            .putInt(KEY_VOLUME_UP_COUNT, volumeUpCount.get())
             .putLong(KEY_LAST_PRESS, lastVolumeUpTime)
             .apply()
 
-        if (volumeUpCount >= 2) {
-            volumeUpCount = 0
+        if (volumeUpCount.get() >= 2) {
+            volumeUpCount.set(0)
             prefs.edit().putInt(KEY_VOLUME_UP_COUNT, 0).apply()
             executeAction(action)
         }

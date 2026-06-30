@@ -1,0 +1,46 @@
+---
+title: "Shizuku Configuration"
+description: "Configure Shizuku for optimal AnyTool usage"
+page: 3
+---
+
+# Shizuku Configuration
+
+## Auto-Start on Boot
+
+To keep Shizuku running without manual intervention:
+
+1. Open Shizuku → **Settings**
+2. Enable **Start on Boot**
+3. Grant the required permission when prompted
+
+## ADB Over Network
+
+For remote ADB access:
+
+```bash
+# From a computer on the same network:
+adb connect <device-ip>:5555
+```
+
+> **Warning:** Only use on trusted networks. ADB over network is unencrypted.
+
+## Permission Management
+
+AnyTool requests these Shizuku permissions:
+
+| Permission | Purpose |
+|------------|---------|
+| `android.permission.SHELL` | Execute shell commands |
+| `android.permission.MANAGE_USERS` | User management (Dhizuku) |
+| `android.permission.INSTALL_PACKAGES` | Silent app install (Dhizuku) |
+
+## Troubleshooting
+
+| Issue | Solution |
+|-------|----------|
+| "Service not running" | Restart Shizuku from its app |
+| "Permission denied" | Re-grant Shizuku permission in Android settings |
+| "Version mismatch" | Update both Shizuku and AnyTool |
+
+> **Previous:** [Installation & Setup ←](/docs/guide/02) | **Next:** [Debloater — Normal Mode →](/docs/guide/04)

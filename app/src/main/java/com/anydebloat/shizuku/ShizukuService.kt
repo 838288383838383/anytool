@@ -4,8 +4,6 @@ import android.os.IBinder
 import android.util.Log
 import com.anydebloat.AnyToolApp
 import rikka.shizuku.Shizuku
-import java.io.BufferedReader
-import java.io.InputStreamReader
 
 object ShizukuService {
 
@@ -32,8 +30,8 @@ object ShizukuService {
 
         return try {
             val process = Runtime.getRuntime().exec(arrayOf("sh", "-c", command))
-            val stdout = BufferedReader(InputStreamReader(process.inputStream)).readText()
-            val stderr = BufferedReader(InputStreamReader(process.errorStream)).readText()
+            val stdout = process.inputStream.bufferedReader().use { it.readText() }
+            val stderr = process.errorStream.bufferedReader().use { it.readText() }
             val exitCode = process.waitFor()
 
             if (exitCode == 0) {

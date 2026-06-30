@@ -1,0 +1,76 @@
+---
+title: "Shell Terminal"
+description: "ADB, rish, and Linux sandbox terminal"
+page: 19
+---
+
+# Shell Terminal
+
+A full-featured terminal with three execution modes.
+
+## Mode 1: ADB Shell (Shizuku)
+
+Execute ADB commands directly through Shizuku — no computer needed.
+
+```bash
+# Common commands:
+pm list packages          # List all packages
+dumpsys battery           # Battery info
+settings list system      # System settings
+getprop ro.build.display.id  # Build ID
+```
+
+## Mode 2: rish
+
+Use Android's built-in `rish` (Remote Interactive Shell) for deeper access.
+
+```bash
+# Start rish:
+rish
+
+# Execute single commands:
+rish -c "pm list packages -d"  # List disabled packages
+```
+
+> **Note:** rish is available on Android 11+ with Shizuku running.
+
+## Mode 3: Linux Sandbox (proot-distro)
+
+Run a full Linux distribution in a sandboxed environment.
+
+### Supported Distributions
+
+| Distribution | Package Manager | Size |
+|-------------|-----------------|------|
+| **Debian** | apt | ~300 MB |
+| **Ubuntu** | apt | ~400 MB |
+| **Arch** | pacman | ~250 MB |
+| **Gentoo** | portage | ~350 MB |
+| **openSUSE** | zypper | ~350 MB |
+| **NixOS** | nix | ~300 MB |
+
+### Setup
+
+1. Install **Termux** from F-Droid
+2. In Termux: `pkg install proot-distro`
+3. Install a distro: `proot-distro install debian`
+4. In AnyTool Terminal, select **Linux Sandbox** mode
+
+### Usage
+
+```bash
+# Once in the sandbox:
+apt update && apt upgrade    # Update packages
+apt install git curl wget    # Install tools
+python3 script.py            # Run scripts
+```
+
+## Terminal Features
+
+- **Command History** — Up/Down arrows to navigate
+- **Tab Completion** — Auto-complete commands and paths
+- **Copy/Paste** — Long-press for clipboard operations
+- **Font Size** — Pinch to zoom
+- **Color Output** — Full ANSI color support
+
+> **Previous:** [App Launcher ←](/docs/guide/18) | **Next:** [Icon Customizer →](/docs/guide/20)

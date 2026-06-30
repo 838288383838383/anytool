@@ -1,0 +1,71 @@
+---
+title: "Linux Sandbox Setup Guide"
+description: "Complete guide to proot-distro with all 6 distributions"
+---
+
+# Linux Sandbox Setup Guide
+
+## Prerequisites
+
+- **Termux** installed from F-Droid (NOT Google Play — Play version is outdated)
+- **AnyTool** with Shell Terminal feature
+
+## Installation
+
+### Step 1: Install Termux
+Download from: https://f-droid.org/en/packages/com.termux/
+
+### Step 2: Update Termux
+```bash
+pkg update && pkg upgrade
+```
+
+### Step 3: Install proot-distro
+```bash
+pkg install proot-distro
+```
+
+### Step 4: Install a Distribution
+
+```bash
+# Debian (recommended for beginners)
+proot-distro install debian
+
+# Ubuntu
+proot-distro install ubuntu
+
+# Arch Linux
+proot-distro install archlinux
+
+# Gentoo
+proot-distro install gentoo
+
+# openSUSE
+proot-distro install opensuse
+
+# NixOS
+proot-distro install nixos
+```
+
+## Using in AnyTool
+
+1. Open AnyTool → Shell Terminal → select **Linux Sandbox**
+2. AnyTool will start proot-distro via Termux's RunCommandService
+3. You're now in a Linux environment
+
+## Distro Comparison
+
+| Distro | Best For | Package Count | RAM Usage |
+|--------|----------|---------------|-----------|
+| Debian | General use | 59,000+ | Low |
+| Ubuntu | Desktop apps | 60,000+ | Medium |
+| Arch | Latest software | 13,000+ | Low |
+| Gentoo | Customization | Source-based | Very Low |
+| openSUSE | Enterprise | 80,000+ | Medium |
+| NixOS | Reproducible | 80,000+ | Medium |
+
+## Tips
+
+- Use `apt` (Debian/Ubuntu) or `pacman` (Arch) to install packages
+- Storage is limited — only install what you need
+- proot has performance overhead — don't expect native speeds

@@ -1,0 +1,57 @@
+---
+title: "Build Prop Editor"
+description: "View and modify Android build.prop"
+page: 7
+---
+
+# Build Prop Editor
+
+The Build Prop Editor lets you view and modify your device's `build.prop` file — the central configuration for Android system properties.
+
+## What is build.prop?
+
+`/system/build.prop` contains system-level properties like:
+- Device model and manufacturer
+- Android version and SDK level
+- Hardware specifications
+- Feature flags and limits
+
+## Viewing Properties
+
+1. Open AnyTool → tap **Build Prop Editor**
+2. Browse all properties in a searchable list
+3. Tap any property to see its value and description
+
+## Editing Properties
+
+### Common Modifications
+
+```properties
+# Increase photo quality
+ro.media.max_jpeg_resolution=4000
+
+# Enable higher refresh rate
+ro.surface_flinger.max_frame_buffer_acquired_buffers=3
+
+# Change device fingerprint (for app compatibility)
+ro.build.fingerprint=samsung/galaxy_s24/s24:14/UP1A.231005.007/...
+
+# Increase LCD density
+ro.sf.lcd_density=480
+```
+
+### How to Save
+
+1. Edit the property value
+2. Tap **Save**
+3. **Reboot** for changes to take effect
+
+> **Warning:** Incorrect build.prop values can cause boot loops. Always back up before editing. Root is required to save changes.
+
+## Backup & Restore
+
+- **Export** — Save your current build.prop to a file
+- **Import** — Restore from a backup file
+- **Reset** — Revert all changes to defaults
+
+> **Previous:** [System Tweaks ←](/docs/guide/06) | **Next:** [Permission Manager →](/docs/guide/08)

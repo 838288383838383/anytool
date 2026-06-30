@@ -52,6 +52,7 @@
             android:launchMode="singleTask"
             android:taskAffinity=""
             android:excludeFromRecents="true" />
+        <activity android:name=".ui.IconCustomizerActivity" android:theme="@style/Theme.AnyTool" />
 
         <service android:name=".service.VolumeManagerService"
             android:exported="false"

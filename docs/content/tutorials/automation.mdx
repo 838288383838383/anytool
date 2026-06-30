@@ -1,0 +1,88 @@
+---
+title: "Shell Automation"
+description: "Automate Android tasks with shell commands and scripts"
+---
+
+# Shell Automation
+
+## ADB Command Automation
+
+### Common Automation Scripts
+
+```bash
+# Debloat script
+for pkg in com.package.one com.package.two com.package.three; do
+    pm disable-user --user 0 $pkg
+done
+
+# Backup app list
+pm list packages -3 > /sdcard/user_packages.txt
+
+# Battery optimization
+settings put global battery_saver_constants "voltage_drops=100"
+```
+
+### Scheduling with Tasker
+
+AnyTool's shell commands can be triggered by Tasker:
+
+1. In Tasker, create a new Task
+2. Add action: **Code → Run Shell**
+3. Use Shizuku's ADB command format:
+```bash
+# Via AnyTool's content provider
+am startservice -a com.anydebloat.RUN_COMMAND --es command "pm list packages -d"
+```
+
+## rish Automation
+
+### Script Execution
+```bash
+# Save script to /sdcard/script.sh
+# Execute via rish:
+rish -c "sh /sdcard/script.sh"
+```
+
+### Cron-like Scheduling
+Use Termux + cron for periodic tasks:
+```bash
+# In Termux:
+pkg install cronie
+crond
+# Edit crontab:
+crontab -e
+```
+
+## Linux Sandbox Automation
+
+### Python Scripts
+```python
+#!/usr/bin/env python3
+import subprocess
+import json
+
+# Run ADB commands from proot
+result = subprocess.run(['pm', 'list', 'packages'], 
+                       capture_output=True, text=True)
+packages = result.stdout.strip().split('\n')
+print(f"Found {len(packages)} packages")
+```
+
+### Bash Scripts
+```bash
+#!/bin/bash
+# System health check
+echo "=== Battery ==="
+dumpsys battery | grep -E "level|temperature|health"
+echo "=== Storage ==="
+df -h /data
+echo "=== Memory ==="
+cat /proc/meminfo | head -5
+```
+
+## Tips
+
+- Always test scripts on non-critical operations first
+- Use `echo` for dry-run before executing destructive commands
+- Log script output for debugging
+- Set timeouts for long-running scripts
