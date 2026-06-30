@@ -112,13 +112,47 @@ class MusicWidget(context: Context, attrs: AttributeSet? = null) : LauncherWidge
     override fun getWidgetType(): String = "music"
 }
 
+class CLIPipeWidget(context: Context, private val command: String, attrs: AttributeSet? = null) : LauncherWidget(context, attrs) {
+
+    private lateinit var outputView: TextView
+    private var updateInterval: Long = 2000
+
+    init {
+        LayoutInflater.from(context).inflate(android.R.layout.simple_list_item_1, this)
+        outputView = findViewById(android.R.id.text1)
+        outputView.textSize = 12f
+        updateWidget()
+    }
+
+    override fun updateWidget() {
+        Thread {
+            try {
+                val proc = Runtime.getRuntime().exec(arrayOf("sh", "-c", command))
+                val out = proc.inputStream.bufferedReader().use { it.readText() }
+                post { outputView.text = out.trim().take(1024) }
+                proc.waitFor()
+            } catch (e: Exception) {
+                post { outputView.text = "Error executing: ${command.split(" ").first()}" }
+            }
+        }.start()
+
+        postDelayed({ updateWidget() }, updateInterval)
+    }
+
+    override fun getWidgetType(): String = "cli"
+}
+
 object WidgetFactory {
-    fun createWidget(type: String, context: Context): LauncherWidget? {
+    fun createWidget(type: String, context: Context, vararg args: String): LauncherWidget? {
         return when (type) {
             "clock" -> ClockWidget(context)
             "weather" -> WeatherWidget(context)
             "stats" -> SystemStatsWidget(context)
             "music" -> MusicWidget(context)
+            "cli" -> {
+                val cmd = if (args.isNotEmpty()) args[0] else "echo 'No command'"
+                CLIPipeWidget(context, cmd)
+            }
             else -> null
         }
     }
