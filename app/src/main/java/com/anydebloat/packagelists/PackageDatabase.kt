@@ -8,6 +8,11 @@ object PackageDatabase {
     fun getAllPackages(): List<PackageInfo> {
         return SamsungOneUIPackages.getPackages() +
                XiaomiMIUIPackages.getPackages() +
+               HyperOSPackages.getPackages() +
+               OnePlusPackages.getPackages() +
+               RealmePackages.getPackages() +
+               OppoPackages.getPackages() +
+               VivoPackages.getPackages() +
                GenericAndroidPackages.getPackages()
     }
 
@@ -16,6 +21,11 @@ object PackageDatabase {
             OEM.ALL -> getAllPackages()
             OEM.SAMSUNG -> SamsungOneUIPackages.getPackages()
             OEM.XIAOMI -> XiaomiMIUIPackages.getPackages()
+            OEM.HYPEROS -> HyperOSPackages.getPackages()
+            OEM.ONEPLUS -> OnePlusPackages.getPackages()
+            OEM.REALME -> RealmePackages.getPackages()
+            OEM.OPPO -> OppoPackages.getPackages()
+            OEM.VIVO -> VivoPackages.getPackages()
             OEM.GENERIC -> GenericAndroidPackages.getPackages()
         }
     }
